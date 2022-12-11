@@ -62,8 +62,6 @@ require_once __DIR__ . "/model/classes.php";
     </section>
     <hr>
 
-    <h3 style="color:red ;">!!!!!WRITE IN YOUR TABLE!!!!!</h3>
-
     <section id="combs"> <!--should these be drop downs? is that too mcuh work?-->
         <h3> COMBS AND BRUSHES </h3>
 
