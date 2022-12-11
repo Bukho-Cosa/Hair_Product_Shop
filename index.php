@@ -15,17 +15,17 @@ require_once __DIR__ . "/config/database_configure.php";
 require_once __DIR__ . "/model/classes.php";
 
 // DAO and Database Config objects
-$database_config = new database_config();
-$Combs_DAO = new Combs_DAO($database_config);
-$Mousse_DAO = new Mousse_DAO($database_config);
-$Sealant_DAO = new Sealant_DAO($database_config);
-$Accessory_DAO = new Accessory_DAO($database_config);
+//$database_config = new database_config();
+//$Combs_DAO = new Combs_DAO($database_config);
+//$Mousse_DAO = new Mousse_DAO($database_config);
+//$Sealant_DAO = new Sealant_DAO($database_config);
+//$Accessory_DAO = new Accessory_DAO($database_config);
 
 // remove session assignment and load in car data from Database
-$Combs_Data = $Combs_DAO->readAll();
-$Mousse_Data = $Mousse_DAO->readAll();
-$Sealant_Data = $Sealant_DAO->readAll();
-$Accessory_Data = $Accessory_DAO->readAll();
+//$Combs_Data = $Combs_DAO->readAll();
+//$Mousse_Data = $Mousse_DAO->readAll();
+//$Sealant_Data = $Sealant_DAO->readAll();
+//$Accessory_Data = $Accessory_DAO->readAll();
 
 
 ?>

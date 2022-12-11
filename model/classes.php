@@ -1,12 +1,6 @@
 <?php
 
 
-//ASK JUSTIN: do you(I?) need to make multiple classes with the same makeup(elements?) cause the views are essentially different tables or should they be children classes? Or is this okay?
-
-
-
-//I don't think I can do an includes file without the hair products being different classes, do ask.
-
 class Combs{
     // ----------------------- fields --------------------------
     private $image;

@@ -3,7 +3,7 @@
 require_once __DIR__ . "/../config/database_configure.php";
 require_once __DIR__ . "/../model/classes.php";
 
-class Combs_DAO{
+/*class Combs_DAO{
 
     private database_config $database_config;
 
@@ -46,7 +46,7 @@ class Combs_DAO{
 
         $Combs_Data = [];
 
-        $statement = "SELECT * FROM Combs";
+        $statement = "SELECT * FROM combs";
 
         if ($result = $connect->query($statement)) {
 
@@ -74,7 +74,7 @@ class Combs_DAO{
 
         $connect = $this->database_config->connect();
 
-        $statement = "SELECT * FROM Combs WHERE id='$id'";
+        $statement = "SELECT * FROM combs WHERE id='$id'";
 
         if ($result = $connect->query($statement)) {
 
@@ -95,7 +95,7 @@ class Combs_DAO{
     }
 
 
-    public function update(Combs $Combs) {
+    /public function update(Combs $Combs) {
 
         $connect = $this->database_config->connect();
 
@@ -169,13 +169,13 @@ class Mousse_DAO{
 
         $Mousse_Data = [];
 
-        $statement = "SELECT * FROM Mousse";
+        $statement = "SELECT * FROM mousse";
 
         if ($result = $connect->query($statement)) {
 
             while ($row = $result->fetch_object()) {
 
-                $Mousse_Object = Mousse::createMousseFromDb($row);
+                $Mousse_Object = mousse::createMousseFromDb($row);
 
                 array_push($Mousse_Data, $Mousse_Object);
             }
@@ -197,7 +197,7 @@ class Mousse_DAO{
 
         $connect = $this->database_config->connect();
 
-        $statement = "SELECT * FROM Mousse WHERE id='$id'";
+        $statement = "SELECT * FROM mousse WHERE id='$id'";
 
         if ($result = $connect->query($statement)) {
 
@@ -205,7 +205,7 @@ class Mousse_DAO{
 
             if ($row !== null) {
                 
-                $Mousse = Mousse::createMousseFromDb($row);
+                $Mousse = mousse::createMousseFromDb($row);
                 $connect->close();
                 return $Mousse;
             }
@@ -368,7 +368,7 @@ class Sealant_DAO{
         }
     }
 
-}
+}*/
 
 
 
@@ -386,14 +386,7 @@ class Accessory_DAO{
 
         $connect = $this->database_config->connect();
 
-        $statement = "INSERT INTO Accessory (image, name, name_of_type, description, price, availability) Values(
-            ". $Accessory->getImage() ."
-            ". $Accessory->getName() ."
-            ". $Accessory->getName_of_type() ."
-            ". $Accessory->getDescription() ."
-            ". $Accessory->getPrice() ."
-            ". $Accessory->getAvailability() ." 
-        )";
+        $statement = "INSERT INTO `accessory`(`image`, `id`, `name`, `notype`, `description`, `price`) VALUES ('". $Accessory->getImage() ."','". $Accessory->getId() ."','". $Accessory->getName() ."','". $Accessory->getName_of_type() ."','". $Accessory->getDescription() ."','". $Accessory->getPrice() ."')";
 
         if ($result = $connect->query($statement)) {
 
@@ -411,28 +404,29 @@ class Accessory_DAO{
 
     public function readAll() {
 
-        $connect = $this->database_config->connect();
+        $conn = $this->database_config->connect();
 
         $Accessory_Data = [];
 
-        $statement = "SELECT * FROM Accessory";
+        $statement = "SELECT * FROM `accessory`";
 
-        if ($result = $connect->query($statement)) {
+        if ($result = $conn->query($statement)) {
 
             while ($row = $result->fetch_object()) {
 
-                $Accessory_Object = Accessory::createAccessoryFromDb($row);
+                $Accessory_Object = accessory::createAccessoryFromDb($row);
 
                 array_push($Accessory_Data, $Accessory_Object);
             }
 
-            $connect->close();
+            //echo $result;
+            $conn->close();
             return $Accessory_Data;
 
         } else {
 
-            die($connect->error . "<br><br>");
-            $connect->close(); 
+            die($conn->error . "<br><br>");
+            $conn->close(); 
             
         }
 
@@ -443,7 +437,7 @@ class Accessory_DAO{
 
         $connect = $this->database_config->connect();
 
-        $statement = "SELECT * FROM Accessory WHERE id='$id'";
+        $statement = "SELECT * FROM `accessory` WHERE id='$id'";
 
         if ($result = $connect->query($statement)) {
 
@@ -463,34 +457,7 @@ class Accessory_DAO{
         }
     }
 
-
-    public function update(Accessory $Accessory) {
-
-        $connect = $this->database_config->connect();
-
-        $statement = "UPDATE Accessory
-                      SET image = '".$Accessory->getImage()."',
-                          name = '".$Accessory->getName()."',
-                          name_of_type = '".$Accessory->getName_of_type()."',
-                          description = '".$Accessory->getDescription()."',
-                          price = '".$Accessory->getPrice()."',
-                          availability = '".$Accessory->getAvailability()."'
-                      WHERE id='".$Accessory->getId()."'
-        ";
-
-        if ($result = $connect->query($statement)) {
-
-            $connect->close();
-            return $result;
-
-        } else {
-
-            die($connect->error); //die function to close connection in case of error
-            $connect->close();
-         
-        }
-    }
-
 }
+
 
 ?>

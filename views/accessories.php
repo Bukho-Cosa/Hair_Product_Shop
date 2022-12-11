@@ -12,13 +12,15 @@ require_once __DIR__ . "/../data/hair_product_dao.php";
 $database_config = new database_config();
 $Accessory_DAO = new Accessory_DAO($database_config);
 
+$Accessory_Data = $Accessory_DAO->readAll();
+
 ?>
 
 
 
 <section id="accessories_products">
     <?php
-    foreach ($_SESSION['Accessory'] as $key => $Accessory) {
+    foreach ($Accessory_Data as $key => $Accessory) {
         echo "
         
         <img src='". $Accessory->getImage() ."' alt='seals_image'>
