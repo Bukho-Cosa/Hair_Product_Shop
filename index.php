@@ -39,6 +39,89 @@ require_once __DIR__ . "/model/classes.php";
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Hair Store</title>
     <link rel="stylesheet" href="/static/styles.css">
+    <style>
+
+        * {
+            margin: 0;
+        }
+
+        #headBanner{
+            padding: 2rem;
+            font-size: larger;
+            text-align: center;
+            background-color: orange;
+        }
+
+        #navBar{
+            float: right;
+            display: flex;
+            margin-top: 1rem;
+            margin-right: 3rem;
+           /* background-color: rgba(188, 125, 15, 0.9);*/
+            
+        }
+        #navBar img{
+            border-radius: 1rem;
+            width: 30px;
+            height: 30px;
+            margin-right: 1.5rem;
+        }
+        #navBar #menu{
+            margin-right: 1.5rem;
+        }
+
+        #combs{
+            margin-top: 4rem;
+            width: 100%;
+        }
+        #combs h3{
+            padding-top: 1.5rem;
+            padding-left: 1rem;
+        }
+        #combs_products{
+            border-radius: 1rem;
+            border: solid black;
+            padding: 0.5rem;
+        }
+
+        #mousse h3{
+            padding-top: 1.5rem;
+            padding-left: 1rem;
+        }
+        #mousse_products{
+            border-radius: 1rem;
+            border: solid black;
+            padding: 0.5rem;
+        }
+
+        #seals h3{
+            padding-top: 1.5rem;
+            padding-left: 1rem;
+        }
+        #seals_products{
+            border-radius: 1rem;
+            border: solid black;
+            padding: 0.5rem;
+        }
+
+        #accessories h3{
+            padding-top: 1.5rem;
+            padding-left: 1rem;
+        }
+        #accessories_products{
+            border-radius: 1rem;
+            border: solid black;
+            padding: 0.5rem;
+        }
+
+        #footer{
+            padding: 5rem;
+            text-align: center;
+            background-color: orange;
+            color: white;
+        }
+
+    </style>
 </head>
 
 <body>
@@ -50,19 +133,21 @@ require_once __DIR__ . "/model/classes.php";
 
     <section id="navBar">
         <select name="menu" id="menu"> Menu
-            <option value="comb">Comb and brush </option>
-            <option value="mousse">Mousse and moisturiser</option>
-            <option value="sealant">Sealant and styler</option>
+            <option value="menu">Menu</option>
+            <option value="comb"><a href="#combs">Comb and brush </a></option>
+            <option value="mousse"><a href="#mousse"> Mousse and moisturiser</a></option>
+            <option value="sealant"><a href="seals"> Sealant and styler</a></option>
         </select>
 
         <h5>ZAR</h5>
-        <img src="" alt="ZAR_flag">
-        <p>cart</p>
-        <!--replace with icon-->
+        <img src="Flag-South-Africa.jpg" alt="ZAR_flag">
+        <img src="cart.png" alt="cart">
     </section>
-    <hr>
 
-    <section id="combs"> <!--should these be drop downs? is that too mcuh work?-->
+
+    <section id="combs">
+        <!--should these be drop downs? is that too mcuh work?-->
+        <hr>
         <h3> COMBS AND BRUSHES </h3>
 
         <section id="combs_products">
@@ -157,7 +242,7 @@ require_once __DIR__ . "/model/classes.php";
     <hr>
 
     <section id="footer">
-        <p>Contact Us: </p> <a href="+27 11 665 27 17"> 011 PRODUCT </a>
+        <p>Contact Us: </p> <a href="+27 11 665 27 17"> (011) PRODUCT </a>
         <p>Email Us: </p> <a href="lauren@hairProducts.com"> lauren@hairProducts.com </a>
         <input type="radio">
         <!--make options so you can have a "rate us"-->
