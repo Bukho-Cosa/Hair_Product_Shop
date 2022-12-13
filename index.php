@@ -14,19 +14,6 @@ require_once __DIR__ . "/data/hair_product_dao.php";
 require_once __DIR__ . "/config/database_configure.php";
 require_once __DIR__ . "/model/classes.php";
 
-// DAO and Database Config objects
-//$database_config = new database_config();
-//$Combs_DAO = new Combs_DAO($database_config);
-//$Mousse_DAO = new Mousse_DAO($database_config);
-//$Sealant_DAO = new Sealant_DAO($database_config);
-//$Accessory_DAO = new Accessory_DAO($database_config);
-
-// remove session assignment and load in car data from Database
-//$Combs_Data = $Combs_DAO->readAll();
-//$Mousse_Data = $Mousse_DAO->readAll();
-//$Sealant_Data = $Sealant_DAO->readAll();
-//$Accessory_Data = $Accessory_DAO->readAll();
-
 
 ?>
 
@@ -43,13 +30,16 @@ require_once __DIR__ . "/model/classes.php";
 
         * {
             margin: 0;
+            /*background-color: rgba(130, 44, 7, 0.93);*/
+            
         }
 
         #headBanner{
             padding: 2rem;
             font-size: larger;
             text-align: center;
-            background-color: orange;
+            background-color: #F3510B;
+            /*background-color: rgba(130, 44, 7, 0.93);*/
         }
 
         #navBar{
@@ -117,7 +107,7 @@ require_once __DIR__ . "/model/classes.php";
         #footer{
             padding: 5rem;
             text-align: center;
-            background-color: orange;
+            background-color: #F3510B;
             color: white;
         }
 

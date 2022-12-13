@@ -7,30 +7,55 @@ ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
 
-require_once __DIR__ . "/../model/classes.php";
+require_once __DIR__ . "/model/classes.php";
+require_once __DIR__ . "/data/hair_product_dao.php";
+require_once __DIR__ . "/config/database_configure.php";
 
 // ---------------- Request Handlers ---------------------
 
 // view product
-if (isset($_GET['view_product'])) {
+// DAO and Database Config objects
+$database_config = new database_config();
+$Combs_DAO = new Combs_DAO($database_config);
+$Mousse_DAO = new Mousse_DAO($database_config);
+$Sealant_DAO = new Sealant_DAO($database_config);
+$Accessory_DAO = new Accessory_DAO($database_config);
 
-    // loop and filter through car data and save selected car to session variable
+// remove session assignment and load in data from Database
+$Combs_Data = $Combs_DAO->readAll();
+$Mousse_Data = $Mousse_DAO->readAll();
+$Sealant_Data = $Sealant_DAO->readAll();
+$Accessory_Data = $Accessory_DAO->readAll();
 
-    foreach ($_SESSION['Hair_Product'] as $i => $Hair_Product) { //this doesn't work anymore becaause I made each table an individual class... ask Justin if this has to be individual pages depending, is there no way to code this all on one page for all of the different classes?
+//if (isset($GET('view_product'))) {
+//    isset($GET('view_product'));
+//    # code...
+//}
 
-        if ($Hair_Product->getId() == $_GET['id']) {
+get_class();
 
-            $_SESSION['selected_product'] = $Hair_Product;
-
-        }
-    }
-}
-
+//switch (isset($GET('view_product'))) {
+//    case $Combs_Data:
+//        return $Combs_Data;
+//        break;
+//    case $Mousse_Data:
+//        return $Mousse_Data;
+//        break;
+//    case $Sealant_Data:
+//        return $Sealant_Data;
+//        break;
+//    default:
+//        # code...
+//        return $Accessory_Data;
+//        break;
+//}
 
 // ip = individual page
 
 
 ?>
+
+
 <html lang="en">
 
 <head>
@@ -43,9 +68,11 @@ if (isset($_GET['view_product'])) {
 </head>
 
 <body>
-    <div id="container"> <!--make bubble-->
+    <div id="container">
+        <!--make bubble-->
         <section> </section> <!-- off-white bubble reflection -->
-        <section id="combs_products"> <!--make inner bubble-->
+        <section id="combs_products">
+            <!--make inner bubble-->
             <?php
             foreach ($_SESSION['Hair_Product'] as $key => $Hair_Product) {
                 echo "
@@ -57,7 +84,7 @@ if (isset($_GET['view_product'])) {
                 <h4 class='ip_name_of_type'> " . $Hair_Product->getName_of_type() . " </h4> 
                 
                 <p class='ip_description'> THIS PRODUCT: <br>
-                ". $Hair_Product->getDescription() ."
+                " . $Hair_Product->getDescription() . "
                 </p>
 
 
@@ -65,8 +92,7 @@ if (isset($_GET['view_product'])) {
                 <form action='./view/purchsed_product.php' method='post'>
                 <input type='hidden' name='product_name' value='" . $Hair_Product->getName() . "'>
                 <button class='ip_button' type='submit' name='purchase_product' value='true'>Add To Cart</button>
-                </form>
-                
+                </form>                
                 ";
                 # code...
             }

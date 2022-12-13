@@ -16,6 +16,7 @@ if (isset($GET['purchase_product'])){
 
 };
 
+". get_class().getName() ."
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -29,8 +30,8 @@ if (isset($GET['purchase_product'])){
     <section> <!--write in the php (!!)-->
         <table>
             <tr>
-                <td><p> name of the product !! </p></td>
-                <td><p> price of the product !! </p></td>
+                <td><p> <?php  //get_class().getName()  ?> </p></td>
+                <td><p> <?php  //get_class().getPrice()  ?> </p></td>
                 <td><button> !! purchase </button></td>
                 <td><button> !! remove from cart </button></td> <!--I only know how to code for this in JS-->
             </tr>
